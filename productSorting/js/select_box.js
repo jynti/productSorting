@@ -40,7 +40,6 @@ SelectBox.prototype.onChangeEvent = function(){
     Product.show(0, this.selectedValue-1, this.visibleProducts, this.productContentArea);
   } else {
     var selectedPagination = SelectBox.getPresentlySelectedValue();
-    // SelectBox.onSortClickEvent(this.selectedValue, this.visibleProducts);
     Product.show(0, selectedPagination-1, this.visibleProducts, this.productContentArea);
   }
 }
