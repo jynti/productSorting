@@ -65,10 +65,10 @@ Filter.prototype.createAvailableFilter = function(){
 //on clicking
 Filter.prototype.checkboxClick = function(){
   var result = this.allProducts;
-  for(var i = 0; i < this.AvailableFilter.length; i++){
-    var selected = this.findSelectedCheckboxes(this.AvailableFilter[i]);
+  for(var filterNum = 0; filterNum < this.AvailableFilter.length; filterNum++){
+    var selected = this.findSelectedCheckboxes(this.AvailableFilter[filterNum]);
     if(selected.length > 0){
-      result = this.productsInThisFilter(selected, result, this.AvailableFilter[i]);
+      result = this.productsInThisFilter(selected, result, this.AvailableFilter[filterNum]);
       if(!result.length){ break; }
     }
   }
@@ -83,9 +83,9 @@ Filter.prototype.findSelectedCheckboxes = function(presentFilter){
 
 Filter.prototype.productsInThisFilter = function(selected, result, presentFilter){
   var presentValues = [];
-  for(var j = 0; j < result.length; j++){
-    if(selected.includes(result[j][presentFilter])){
-      presentValues.push(result[j]);
+  for(var productNum = 0; productNum < result.length; productNum++){
+    if(selected.includes(result[productNum][presentFilter])){
+      presentValues.push(result[productNum]);
     }
   }
   return presentValues;
