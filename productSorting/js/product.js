@@ -5,14 +5,12 @@ function Product(value){
   this.available = value.sold_out;
   this.url = value.url;
 }
-Product.show = function(from, to, visibleProducts, productContentArea){
-  productContentArea.empty();
-  if(to > visibleProducts.length - 1){
-    to = visibleProducts.length -1;
-  }
 
-  var sortValue = SelectBox.getPresentlySelectedSortValue();
-  visibleProducts = SelectBox.onSortClickEvent(sortValue, visibleProducts);
+Product.show = function(from, to, visibleProducts, productContentArea, dropdown){
+  productContentArea.empty();
+  if( to > visibleProducts.length - 1 ){ to = visibleProducts.length -1; }
+  var sortValue = dropdown.selectedValues["sort"];
+  visibleProducts = dropdown.onSortClickEvent(sortValue, visibleProducts);
 
   this.allVisibleProducts = visibleProducts;
   for(var i = from; i <= to; i++){
